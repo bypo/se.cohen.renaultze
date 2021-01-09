@@ -1,14 +1,21 @@
 {
-  "name": "se.cohen.renaultze-test",
+  "name": "se.cohen.renaultze",
   "version": "1.0.0",
+  "description": "Add support to check status on your Renault Zoe and also handle pre-heating.",
   "main": "app.js",
-  "devDependencies": {
-    "homey": "^2.9.2"
-  },
   "dependencies": {
     "axios": "^0.21.1"
   },
-  "engines": {
-    "node": ">=12.16.1"
-  }
+  "devDependencies": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joco73/se.cohen.renaultze.git"
+  },
+  "author": "Jonathan Cohen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joco73/se.cohen.renaultze/issues"
+  },
+  "homepage": "https://github.com/joco73/se.cohen.renaultze.git#readme"
 }
