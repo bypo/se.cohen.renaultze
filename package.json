@@ -1,0 +1,14 @@
+{
+  "name": "se.cohen.renaultze-test",
+  "version": "1.0.0",
+  "main": "app.js",
+  "devDependencies": {
+    "homey": "^2.9.2"
+  },
+  "dependencies": {
+    "axios": "^0.21.1"
+  },
+  "engines": {
+    "node": ">=12.16.1"
+  }
+}

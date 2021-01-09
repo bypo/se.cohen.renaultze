@@ -1,0 +1,191 @@
+{
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
+  "id": "se.cohen.renaultze-test",
+  "version": "1.0.0",
+  "compatibility": ">=4.1.0",
+  "sdk": 2,
+  "brandColor": "#0d3b66",
+  "name": {
+    "en": "RenaultZE-test"
+  },
+  "description": {
+    "en": "Add support to check status on your Renault Zoe and also handle pre-heating."
+  },
+  "tags": {
+    "en": [
+      "renault, zoe, battery, heating"
+    ]
+  },
+  "category": [
+    "appliances"
+  ],
+  "permissions": [],
+  "images": {
+    "large": "/assets/images/large.png",
+    "small": "/assets/images/small.png"
+  },
+  "author": {
+    "name": "Jonathan Cohen",
+    "email": "jonathan@cohen.se"
+  },
+  "contributors": {
+    "developers": [
+      {
+        "name": "Jonathan Cohen",
+        "email": "jonathan@cohen.se"
+      }
+    ]
+  },
+  "drivers": [
+    {
+      "id": "renault-zoe",
+      "name": {
+        "en": "Renault Zoe"
+      },
+      "class": "other",
+      "capabilities": [
+        "onoff",
+        "measure_battery",
+        "measure_temperature",
+        "measure_batteryAvailableEnergy",
+        "measure_batteryAutonomy",
+        "measure_totalMileage",
+        "measure_plugStatus",
+        "measure_chargingStatus",
+        "measure_chargingRemainingTime",
+        "measure_chargingInstantaneousPower"
+      ],
+      "capabilitiesOptions": {
+        "onoff": {
+          "title": {
+            "en": "Turn on heater",
+            "sv": "Slå på värmaren"
+          }
+        },
+        "measure_temperature": {
+          "title": {
+            "en": "Battery temparature",
+            "sv": "Batteritemperatur"
+          }
+        }
+      },
+      "energy": {
+        "batteries": [
+          "INTERNAL"
+        ]
+      },
+      "pair": [
+        {
+          "id": "login_credentials",
+          "template": "login_credentials"
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          },
+          "options": {
+            "singular": true
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    }
+  ],
+  "capabilities": {
+    "measure_batteryAutonomy": {
+      "type": "number",
+      "decimals": 0,
+      "title": {
+        "en": "Range",
+        "sv": "Räckvidd"
+      },
+      "units": "km",
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "assets/icons/batteryAutonomy.svg"
+    },
+    "measure_batteryAvailableEnergy": {
+      "type": "number",
+      "decimals": 0,
+      "title": {
+        "en": "Available energy",
+        "sv": "Tillgänglig energi"
+      },
+      "units": "kW",
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "assets/icons/batteryAvailableEnergy.svg"
+    },
+    "measure_chargingInstantaneousPower": {
+      "type": "number",
+      "decimals": 2,
+      "title": {
+        "en": "Charging rate",
+        "sv": "Laddhastighet"
+      },
+      "units": "kW",
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "assets/icons/chargingInstantaneousPower.svg"
+    },
+    "measure_chargingRemainingTime": {
+      "type": "number",
+      "decimals": 0,
+      "title": {
+        "en": "Charge remaining time",
+        "sv": "Återstående laddtid"
+      },
+      "units": {
+        "en": "minutes",
+        "sv": "minuter"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "assets/icons/chargingRemainingTime.svg"
+    },
+    "measure_chargingStatus": {
+      "type": "boolean",
+      "title": {
+        "en": "Charging",
+        "sv": "Laddar"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "assets/icons/chargingStatus.svg"
+    },
+    "measure_plugStatus": {
+      "type": "boolean",
+      "title": {
+        "en": "Plugged in",
+        "sv": "Inkopplad"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "assets/icons/plugStatus.svg"
+    },
+    "measure_totalMileage": {
+      "type": "number",
+      "decimals": 2,
+      "title": {
+        "en": "Total milage",
+        "sv": "Total körsträcka"
+      },
+      "units": "km",
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "assets/icons/totalMileage.svg"
+    }
+  }
+}

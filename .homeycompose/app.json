@@ -1,0 +1,38 @@
+{
+  "id": "se.cohen.renaultze-test",
+  "version": "1.0.0",
+  "compatibility": ">=4.1.0",
+  "sdk": 2,
+  "brandColor": "#0d3b66",
+  "name": {
+    "en": "RenaultZE-test"
+  },
+  "description": {
+    "en": "Add support to check status on your Renault Zoe and also handle pre-heating."
+  },
+  "tags": {
+    "en": [
+      "renault, zoe, battery, heating"
+    ]
+  },
+  "category": [
+    "appliances"
+  ],
+  "permissions": [],
+  "images": {
+    "large": "/assets/images/large.png",
+    "small": "/assets/images/small.png"
+  },
+  "author": {
+    "name": "Jonathan Cohen",
+    "email": "jonathan@cohen.se"
+  },
+  "contributors": {
+    "developers": [
+      {
+        "name": "Jonathan Cohen",
+        "email": "jonathan@cohen.se"
+      }
+    ]
+  }
+}

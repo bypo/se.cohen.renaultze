@@ -1,0 +1,16 @@
+{
+    "type": "number",
+    "decimals": 0,
+    "title": {
+      "en": "Charge remaining time",
+      "sv": "Återstående laddtid"
+    },
+    "units": {
+      "en": "minutes",
+      "sv": "minuter"
+    },
+    "getable": true,
+    "setable": false,
+    "uiComponent": "sensor",
+    "icon":"assets/icons/chargingRemainingTime.svg"
+  }

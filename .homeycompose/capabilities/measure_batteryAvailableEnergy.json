@@ -1,0 +1,13 @@
+{
+    "type": "number",
+    "decimals": 0,
+    "title": {
+      "en": "Available energy",
+      "sv": "Tillgänglig energi"
+    },
+    "units": "kW",
+    "getable": true,
+    "setable": false,
+    "uiComponent": "sensor",
+    "icon":"assets/icons/batteryAvailableEnergy.svg"
+  }

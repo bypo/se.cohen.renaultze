@@ -1,0 +1,13 @@
+{
+    "type": "number",
+    "decimals": 2,
+    "title": {
+      "en": "Charging rate",
+      "sv": "Laddhastighet"
+    },
+    "units": "kW",
+    "getable": true,
+    "setable": false,
+    "uiComponent": "sensor",
+    "icon":"assets/icons/chargingInstantaneousPower.svg"
+  }
