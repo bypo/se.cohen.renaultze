@@ -3,22 +3,19 @@
 const Homey = require('homey');
 const api = require('/lib/api');
 
-class RenaultZoeDevice extends Homey.Device {
+module.exports = class RenaultZoeDevice extends Homey.Device {
 
   async onInit() {
     this.log('RenaultZoeDevice has been initialized');
-
     const settings = this.getSettings();
-
     this.hvacState = 'off';
     this.setCapabilityValue('onoff', false)
     this.registerCapabilityListener('onoff', this.onCapabilityButton.bind(this, settings));
-
     this.fetchCarData(settings)
       .catch(err => {
         this.error(err);
       });
-    this.data = setInterval(() => { this.fetchCarData(settings); }, 600000); 
+    this.data = this.homey.setInterval(() => { this.fetchCarData(settings); }, 600000);
   }
 
   async onCapabilityButton(settings, opts) {
@@ -32,7 +29,7 @@ class RenaultZoeDevice extends Homey.Device {
           .then(result => {
             console.log(result);
             this.setHvacStatus('on');
-            this.data = setTimeout(() => { this.setHvacStatus('off'); }, 900000);
+            this.data = this.homey.setTimeout(() => { this.setHvacStatus('off'); }, 600000);
           })
           .catch((error) => {
             console.log(error);
@@ -67,9 +64,7 @@ class RenaultZoeDevice extends Homey.Device {
 
   async fetchCarData(settings) {
     this.log('-> enter fetchCarData');
-
     let renaultApi = new api.RenaultApi(settings);
-
     renaultApi.getBatteryStatus()
       .then(result => {
         console.log(result);
@@ -78,8 +73,9 @@ class RenaultZoeDevice extends Homey.Device {
         this.setCapabilityValue('measure_batteryAvailableEnergy', result.data.batteryAvailableEnergy);
         this.setCapabilityValue('measure_batteryAutonomy', result.data.batteryAutonomy);
         let plugStatus = false;
-        if (result.data.plugStatus === 1)
+        if (result.data.plugStatus === 1) {
           plugStatus = true;
+        }
         this.setCapabilityValue('measure_plugStatus', plugStatus);
         let chargingRemainingTime = 0;
         let chargingInstantaneousPower = 0;
@@ -88,6 +84,9 @@ class RenaultZoeDevice extends Homey.Device {
           chargingStatus = true;
           chargingRemainingTime = result.data.chargingRemainingTime;
           chargingInstantaneousPower = result.data.chargingInstantaneousPower;
+          if (renaultApi.reportsChargingPowerInWatts()) {
+            chargingInstantaneousPower = chargingInstantaneousPower / 1000;
+          }
         }
         this.setCapabilityValue('measure_chargingStatus', chargingStatus);
         this.setCapabilityValue('measure_chargingRemainingTime', chargingRemainingTime);
@@ -96,7 +95,6 @@ class RenaultZoeDevice extends Homey.Device {
       .catch((error) => {
         console.log(error);
       });
-
     renaultApi.getCockpit()
       .then(result => {
         console.log(result);
@@ -105,7 +103,6 @@ class RenaultZoeDevice extends Homey.Device {
       .catch((error) => {
         console.log(error);
       });
-
   }
 
   async onAdded() {
@@ -124,5 +121,3 @@ class RenaultZoeDevice extends Homey.Device {
     this.log('MyDevice has been deleted');
   }
 }
-
-module.exports = RenaultZoeDevice;

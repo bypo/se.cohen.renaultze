@@ -1,8 +1,8 @@
 {
   "id": "se.cohen.renaultze",
-  "version": "1.0.0",
-  "compatibility": ">=4.1.0",
-  "sdk": 2,
+  "version": "1.0.1",
+  "compatibility": ">=5.0.0",
+  "sdk": 3,
   "brandColor": "#0d3b66",
   "name": {
     "en": "RenaultZE"
