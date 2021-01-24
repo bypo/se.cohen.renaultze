@@ -6,7 +6,7 @@ const api = require('/lib/api');
 module.exports = class RenaultZoeDevice extends Homey.Device {
 
   async onInit() {
-    this.log('RenaultZoeDevice has been initialized');
+    this.log('RenaultZoeDevice has been initialized for: ', this.getName());
     const settings = this.getSettings();
     this.hvacState = 'off';
     this.setCapabilityValue('onoff', false)
@@ -24,7 +24,7 @@ module.exports = class RenaultZoeDevice extends Homey.Device {
       this.log('Start AC');
       let batterylevel = this.getCapabilityValue('measure_battery');
       if (batterylevel > 39) {
-        let renaultApi = new api.RenaultApi(settings);
+        let renaultApi = new api.RenaultApi(settings, Homey.env.ENCRYPTION_KEY);
         renaultApi.startAC(21)
           .then(result => {
             console.log(result);
@@ -64,7 +64,7 @@ module.exports = class RenaultZoeDevice extends Homey.Device {
 
   async fetchCarData(settings) {
     this.log('-> enter fetchCarData');
-    let renaultApi = new api.RenaultApi(settings);
+    let renaultApi = new api.RenaultApi(settings, Homey.env.ENCRYPTION_KEY);
     renaultApi.getBatteryStatus()
       .then(result => {
         console.log(result);

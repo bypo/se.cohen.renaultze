@@ -28,9 +28,9 @@ module.exports = class RenaultZoeDriver extends Homey.Driver {
       if (data.username === '' || data.password === '') {
         return false;
       }
-      settings.username = data.username;
-      settings.password = data.password;
-      let renaultApi = new api.RenaultApi(settings);
+      let renaultApi = new api.RenaultApi(settings, Homey.env.ENCRYPTION_KEY);
+      settings.username = renaultApi.encrypt(data.username);
+      settings.password = renaultApi.encrypt(data.password);
       return await renaultApi.signUp()
         .then(result => {
           console.log('loggedIn');
@@ -49,7 +49,7 @@ module.exports = class RenaultZoeDriver extends Homey.Driver {
 
     session.setHandler('list_devices', async (data) => {
       this.log('-> enter list_devices');
-      let renaultApi = new api.RenaultApi(settings);
+      let renaultApi = new api.RenaultApi(settings, Homey.env.ENCRYPTION_KEY);
       return await renaultApi.getDevices()
         .then(result => {
           console.log('getDevices');
