@@ -69,7 +69,7 @@ module.exports = class RenaultZoeDevice extends Homey.Device {
       .then(result => {
         console.log(result);
         this.setCapabilityValue('measure_battery', result.data.batteryLevel);
-        this.setCapabilityValue('measure_temperature', result.data.batteryTemperature);
+        this.setCapabilityValue('measure_batteryTemperature', result.data.batteryTemperature);
         this.setCapabilityValue('measure_batteryAvailableEnergy', result.data.batteryAvailableEnergy);
         this.setCapabilityValue('measure_batteryAutonomy', result.data.batteryAutonomy);
         let plugStatus = false;

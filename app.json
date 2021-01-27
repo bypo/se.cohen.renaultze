@@ -46,7 +46,7 @@
       "capabilities": [
         "onoff",
         "measure_battery",
-        "measure_temperature",
+        "measure_batteryTemperature",
         "measure_batteryAvailableEnergy",
         "measure_batteryAutonomy",
         "measure_totalMileage",
@@ -60,12 +60,6 @@
           "title": {
             "en": "Turn on heater",
             "sv": "Slå på värmaren"
-          }
-        },
-        "measure_temperature": {
-          "title": {
-            "en": "Battery temparature",
-            "sv": "Batteritemperatur"
           }
         }
       },
@@ -122,6 +116,19 @@
       "setable": false,
       "uiComponent": "sensor",
       "icon": "assets/icons/batteryAvailableEnergy.svg"
+    },
+    "measure_batteryTemperature": {
+      "type": "number",
+      "decimals": 0,
+      "title": {
+        "en": "Battery temparature",
+        "sv": "Batteritemperatur"
+      },
+      "units": "°C",
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "assets/icons/batteryTemperture.svg"
     },
     "measure_chargingInstantaneousPower": {
       "type": "number",

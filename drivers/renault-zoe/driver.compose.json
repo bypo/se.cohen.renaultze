@@ -7,7 +7,7 @@
   "capabilities": [
     "onoff",
     "measure_battery",
-    "measure_temperature",
+    "measure_batteryTemperature",
     "measure_batteryAvailableEnergy",
     "measure_batteryAutonomy",
     "measure_totalMileage",
@@ -21,12 +21,6 @@
       "title": {
         "en": "Turn on heater",
         "sv": "Slå på värmaren"
-      }
-    },
-    "measure_temperature": {
-      "title": {
-        "en": "Battery temparature",
-        "sv": "Batteritemperatur"
       }
     }
   },
