@@ -1,6 +1,6 @@
 {
   "id": "se.cohen.renaultze",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#0d3b66",
@@ -16,12 +16,13 @@
     ]
   },
   "category": [
-    "appliances"
+    "localization"
   ],
   "permissions": [],
   "images": {
-    "large": "/assets/images/large.png",
-    "small": "/assets/images/small.png"
+    "xlarge": "/assets/images/xlarge.jpg",
+    "large": "/assets/images/large.jpg",
+    "small": "/assets/images/small.jpg"
   },
   "author": {
     "name": "Jonathan Cohen",
@@ -34,5 +35,19 @@
         "email": "jonathan@cohen.se"
       }
     ]
-  }
+  },
+  "copyright": "Jonathan Cohen (jonathan@cohen.se)",
+  "license": " GPL-3.0-or-later",
+  "contributing": {
+    "donate": {
+      "paypal": {
+        "username": "cohense"
+      }
+    }
+  },
+  "bugs": {
+    "url": "https://github.com/joco73/se.cohen.renaultze/issues"
+  },
+  "source": "https://github.com/joco73/se.cohen.renaultze",
+  "homepage": "https://github.com/joco73/se.cohen.renaultze#readme"
 }
