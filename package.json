@@ -4,7 +4,7 @@
   "description": "Add support to check status on your Renault Zoe and also handle pre-heating.",
   "main": "app.js",
   "dependencies": {
-    "axios": "^0.21.1"
+    "axios": "^0.21.4"
   },
   "devDependencies": {},
   "repository": {

@@ -23,7 +23,7 @@ module.exports = class RenaultZoeDevice extends Homey.Device {
     if (opts === true) {
       this.log('Start AC');
       let batterylevel = this.getCapabilityValue('measure_battery');
-      if (batterylevel > 39) {
+      if (batterylevel > 24) { // Zoe internal app can not run heater below 40 - we will be a bit nicer
         let renaultApi = new api.RenaultApi(settings, Homey.env.ENCRYPTION_KEY);
         renaultApi.startAC(21)
           .then(result => {
@@ -40,7 +40,7 @@ module.exports = class RenaultZoeDevice extends Homey.Device {
       else {
         console.log('Battery level to low o start.');
         this.setHvacStatus('off');
-        throw new Error('Your car need some more charging before using heater, not started (40% is needed, that has Renault decided).');
+        throw new Error('Your car need some more charging before using heater, not started 25% is needed).');
       }
     }
     else {
