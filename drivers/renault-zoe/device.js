@@ -15,7 +15,7 @@ module.exports = class RenaultZoeDevice extends Homey.Device {
       .catch(err => {
         this.error(err);
       });
-    this.data = this.homey.setInterval(() => { this.fetchCarData(settings); }, 600000);
+    this.data = this.homey.setInterval(() => { this.fetchCarData(settings); }, 300000);
   }
 
   async onCapabilityButton(settings, opts) {
@@ -99,6 +99,14 @@ module.exports = class RenaultZoeDevice extends Homey.Device {
       .then(result => {
         console.log(result);
         this.setCapabilityValue('measure_totalMileage', result.data.totalMileage);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    renaultApi.getACStatus()
+      .then(result => {
+        console.log(result);
+        this.setHvacStatus(result.data.hvacStatus);
       })
       .catch((error) => {
         console.log(error);
