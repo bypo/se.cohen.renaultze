@@ -1,4 +1,4 @@
-# RenaultZE - Handle your Renault Zoe in Homey
+RenaultZE - Handle your Renault Zoe in Homey
 
 Add support to check status on your Renault Zoe and handle pre-heating.
 Should work on these, but only tested with "ZOE phase 2".
