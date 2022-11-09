@@ -6,6 +6,7 @@
   "class": "other",
   "capabilities": [
     "onoff",
+    "charge_mode",
     "measure_battery",
     "measure_batteryTemperature",
     "measure_batteryAvailableEnergy",

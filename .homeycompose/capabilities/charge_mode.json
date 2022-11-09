@@ -1,0 +1,26 @@
+{
+  "type": "enum",
+  "values": [
+    {
+      "id": "always_charging",
+      "title": {
+        "en": "Always",
+        "sv": "Alltid på"
+      }
+    },
+    {
+      "id": "schedule_mode",
+      "title": {
+        "en": "Scheduled",
+        "sv": "Schemalagd"
+      }
+    }
+  ],
+  "title": {
+    "en": "Charge mode",
+    "sv": "Laddläge"
+  },
+  "uiComponent": "picker",
+  "getable": true,
+  "setable": true
+}

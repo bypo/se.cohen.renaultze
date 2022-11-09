@@ -7,23 +7,58 @@ module.exports = class RenaultZoeDevice extends Homey.Device {
 
   async onInit() {
     this.log('RenaultZoeDevice has been initialized for: ', this.getName());
-    const settings = this.getSettings();
+    
+    if (this.hasCapability('charge_mode') === false) {
+      this.log('Added charge_mode capabillity ')
+      await this.addCapability('charge_mode');
+    }
+    
     this.hvacState = 'off';
     this.setCapabilityValue('onoff', false)
-    this.registerCapabilityListener('onoff', this.onCapabilityButton.bind(this, settings));
-    this.fetchCarData(settings)
+    this.registerCapabilityListener('onoff', this.onCapabilityButton.bind(this));
+    this.setCapabilityValue('charge_mode', 'always_charging')
+    this.registerCapabilityListener('charge_mode', this.onCapabilityPicker.bind(this));
+    
+    this.fetchData()
       .catch(err => {
         this.error(err);
       });
-    this.data = this.homey.setInterval(() => { this.fetchCarData(settings); }, 300000);
+
+    this.pollingInterval = this.homey.setInterval(() => { this.fetchData(); }, 200000);
   }
 
-  async onCapabilityButton(settings, opts) {
+  async chargeModeActionRunListener(args, state) {
+    this.log('-> chargeModeActionRunListener is run');
+    const settings = this.getSettings();
+    let renaultApi = new api.RenaultApi(settings, Homey.env.ENCRYPTION_KEY);
+    renaultApi.setChargeMode(args.mode)
+    .then(result => {
+      console.log(result);
+      this.setCapabilityValue('charge_mode', args.mode)
+    });
+  }
+
+  async onCapabilityPicker(opts) {
+    this.log('-> onCapabilityPicker is changeed');
+    const settings = this.getSettings();
+    let renaultApi = new api.RenaultApi(settings, Homey.env.ENCRYPTION_KEY);
+    renaultApi.setChargeMode(opts)
+      .then(result => {
+        console.log(result);
+        this.setCapabilityValue('charge_mode', opts)
+        this.homey.flow.getDeviceTriggerCard('charge_mode_change')
+          .trigger(this, null)
+          .catch(this.error);
+      });
+  }
+
+  async onCapabilityButton(opts) {
     this.log('-> onCapabilityButton is clicked');
     if (opts === true) {
       this.log('Start AC');
       let batterylevel = this.getCapabilityValue('measure_battery');
       if (batterylevel > 24) { // Zoe internal app can not run heater below 40 - we will be a bit nicer
+        const settings = this.getSettings();
         let renaultApi = new api.RenaultApi(settings, Homey.env.ENCRYPTION_KEY);
         renaultApi.startAC(21)
           .then(result => {
@@ -62,8 +97,9 @@ module.exports = class RenaultZoeDevice extends Homey.Device {
     }
   }
 
-  async fetchCarData(settings) {
+  async fetchData() {
     this.log('-> enter fetchCarData');
+    const settings = this.getSettings();
     let renaultApi = new api.RenaultApi(settings, Homey.env.ENCRYPTION_KEY);
     renaultApi.getBatteryStatus()
       .then(result => {
@@ -111,6 +147,19 @@ module.exports = class RenaultZoeDevice extends Homey.Device {
       .catch((error) => {
         console.log(error);
       });
+    renaultApi.getChargeMode()
+      .then(result => {
+        console.log(result);
+        if (result.data.chargeMode === 'scheduled') {
+          this.setCapabilityValue('charge_mode', 'schedule_mode')
+        }
+        else {
+          this.setCapabilityValue('charge_mode', 'always_charging')
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   async onAdded() {
@@ -127,5 +176,6 @@ module.exports = class RenaultZoeDevice extends Homey.Device {
 
   async onDeleted() {
     this.log('MyDevice has been deleted');
+    clearInterval(this.pollingInterval);
   }
 }
