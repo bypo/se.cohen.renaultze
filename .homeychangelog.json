@@ -4,5 +4,8 @@
   },
   "2.0.1": {
     "en": "Updated App Icon, readme and added link to comminty forum"
+  },
+  "2.0.2": {
+    "en": "Added trigger flow and action to handle charge mode"
   }
 }
