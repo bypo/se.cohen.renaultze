@@ -1,0 +1,13 @@
+{
+  "title": {
+    "en": "Vehicle is at home changed",
+    "sv": "Fordonets hemma status ändrades"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=renault-zoe"
+    }
+  ]
+}

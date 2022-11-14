@@ -1,0 +1,13 @@
+{
+  "title": {
+    "en": "Charge mode changed",
+    "sv": "Laddläge ändrades"
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=renault-zoe"
+    }
+  ]
+}

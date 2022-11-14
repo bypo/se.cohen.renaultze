@@ -15,7 +15,9 @@
     "measure_plugStatus",
     "measure_chargingStatus",
     "measure_chargingRemainingTime",
-    "measure_chargingInstantaneousPower"
+    "measure_chargingInstantaneousPower",
+    "measure_isHome",
+    "measure_location"
   ],
   "capabilitiesOptions": {
     "onoff": {

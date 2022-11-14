@@ -1,0 +1,11 @@
+{
+    "type": "string",
+    "title": {
+      "en": "Location",
+      "sv": "Position"
+    },
+    "units": "lat lng",
+    "getable": true,
+    "setable": false,
+    "uiComponent": null
+  }

@@ -1,0 +1,13 @@
+{
+  "title": {
+    "en": "Charging !{{active|inactive}} ",
+    "sv": "Laddning !{{aktiv|inaktiv}} "
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=renault-zoe"
+    }
+  ]
+}

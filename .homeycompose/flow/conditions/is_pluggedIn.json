@@ -1,0 +1,13 @@
+{
+  "title": {
+    "en": "!{{Plugged in|Not plugged in}} ",
+    "sv": "!{{Inkopplad|Ej inlopplad}} "
+  },
+  "args": [
+    {
+      "name": "device",
+      "type": "device",
+      "filter": "driver_id=renault-zoe"
+    }
+  ]
+}
