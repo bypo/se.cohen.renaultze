@@ -1,6 +1,6 @@
 {
   "id": "se.cohen.renaultze",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#0d3b66",
@@ -22,7 +22,9 @@
     "localization"
   ],
   "homeyCommunityTopicId": 71850,
-  "permissions": [],
+  "permissions": [
+    "homey:manager:geolocation"
+  ],
   "images": {
     "xlarge": "/assets/images/xlarge.png",
     "large": "/assets/images/large.png",

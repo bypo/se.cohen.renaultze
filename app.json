@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "se.cohen.renaultze",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#0d3b66",
@@ -23,7 +23,9 @@
     "localization"
   ],
   "homeyCommunityTopicId": 71850,
-  "permissions": [],
+  "permissions": [
+    "homey:manager:geolocation"
+  ],
   "images": {
     "xlarge": "/assets/images/xlarge.png",
     "large": "/assets/images/large.png",
@@ -69,7 +71,65 @@
             "filter": "driver_id=renault-zoe"
           }
         ],
-        "id": "charge_mode_change"
+        "id": "charge_mode_changed"
+      },
+      {
+        "title": {
+          "en": "Vehicle is at home changed",
+          "sv": "Fordonets hemma status ändrades"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=renault-zoe"
+          }
+        ],
+        "id": "measure_isHome_changed"
+      },
+      {
+        "title": {
+          "en": "Vehicle location changed",
+          "sv": "Fordonets position ändrades"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=renault-zoe"
+          }
+        ],
+        "id": "measure_location_changed"
+      }
+    ],
+    "conditions": [
+      {
+        "title": {
+          "en": "Charging !{{active|inactive}} ",
+          "sv": "Laddning !{{aktiv|inaktiv}} "
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=renault-zoe"
+          }
+        ],
+        "id": "is_charging"
+      },
+      {
+        "title": {
+          "en": "!{{Plugged in|Not plugged in}} ",
+          "sv": "!{{Inkopplad|Ej inlopplad}} "
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=renault-zoe"
+          }
+        ],
+        "id": "is_pluggedIn"
       }
     ],
     "actions": [
@@ -131,7 +191,9 @@
         "measure_plugStatus",
         "measure_chargingStatus",
         "measure_chargingRemainingTime",
-        "measure_chargingInstantaneousPower"
+        "measure_chargingInstantaneousPower",
+        "measure_isHome",
+        "measure_location"
       ],
       "capabilitiesOptions": {
         "onoff": {
@@ -281,6 +343,28 @@
       "setable": false,
       "uiComponent": "sensor",
       "icon": "assets/icons/chargingStatus.svg"
+    },
+    "measure_isHome": {
+      "type": "boolean",
+      "title": {
+        "en": "Is vehicle at home",
+        "sv": "Är fordonet hemma"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "assets/icons/isHome.svg"
+    },
+    "measure_location": {
+      "type": "string",
+      "title": {
+        "en": "Location",
+        "sv": "Position"
+      },
+      "units": "lat lng",
+      "getable": true,
+      "setable": false,
+      "uiComponent": null
     },
     "measure_plugStatus": {
       "type": "boolean",
