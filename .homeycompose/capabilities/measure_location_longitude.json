@@ -1,8 +1,8 @@
 {
     "type": "string",
     "title": {
-      "en": "Location",
-      "sv": "Position"
+      "en": "Longitude",
+      "sv": "Longitud"
     },
     "getable": true,
     "setable": false,

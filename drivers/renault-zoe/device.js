@@ -37,6 +37,14 @@ module.exports = class RenaultZoeDevice extends Homey.Device {
       this.log('Added measure_location capabillity ');
       this.addCapability('measure_location');
     }
+    if (this.hasCapability('measure_location_latitude') === false) {
+      this.log('Added measure_location_latitude capabillity ');
+      this.addCapability('measure_location_latitude');
+    }
+    if (this.hasCapability('measure_location_longitude') === false) {
+      this.log('Added measure_location_longitude capabillity ');
+      this.addCapability('measure_location_longitude');
+    }
   }
 
   async setLocation(result) {
@@ -50,7 +58,9 @@ module.exports = class RenaultZoeDevice extends Homey.Device {
       let renaultApi = new api.RenaultApi(settings, Homey.env.ENCRYPTION_KEY);
       const setLocation = renaultApi.calculateHome(HomeyLat, HomeyLng, lat, lng);
       await this.setCapabilityValue('measure_isHome', setLocation <= 1);
-      await this.setCapabilityValue('measure_location', lat + ' ' + lng);
+      await this.setCapabilityValue('measure_location', 'https://www.google.com/maps/search/?api=1&query=' + lat + ',' + lng);
+      await this.setCapabilityValue('measure_location_latitude', lat.toString());
+      await this.setCapabilityValue('measure_location_longitude', lng.toString());
     } catch (error) {
       this.homey.app.log(error);
     }
