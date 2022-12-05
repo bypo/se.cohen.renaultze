@@ -10,5 +10,8 @@
   },
   "2.0.3": {
     "en": "Added location API and capability/triggers for is home and location (lat lng) and also added conditions for is charging and is plugged in. Fixed some problems with undefined variables. "
+  },
+  "2.0.4": {
+    "en": "Updated location to hold google maps url and added separat long/lat capabilities"
   }
 }
