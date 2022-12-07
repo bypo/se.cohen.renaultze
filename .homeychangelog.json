@@ -13,5 +13,8 @@
   },
   "2.0.4": {
     "en": "Updated location to hold google maps url and added separat long/lat capabilities"
+  },
+  "2.0.5": {
+    "en": "Added more loggig, updated pairing to prefent possible error"
   }
 }
