@@ -21,7 +21,7 @@ module.exports = class RenaultZoeDevice extends Homey.Device {
         this.error(err);
       });
 
-    this.pollingInterval = this.homey.setInterval(() => { this.fetchData(); }, 200000);
+    this.pollingInterval = this.homey.setInterval(() => { this.fetchData(); }, 60000);
   }
 
   SetCapabilities() {
@@ -55,7 +55,7 @@ module.exports = class RenaultZoeDevice extends Homey.Device {
       const HomeyLat = this.homey.geolocation.getLatitude();
       const HomeyLng = this.homey.geolocation.getLongitude();
       const settings = this.getSettings();
-      let renaultApi = new api.RenaultApi(settings, Homey.env.ENCRYPTION_KEY);
+      let renaultApi = new api.RenaultApi(settings);
       const setLocation = renaultApi.calculateHome(HomeyLat, HomeyLng, lat, lng);
       await this.setCapabilityValue('measure_isHome', setLocation <= 1);
       await this.setCapabilityValue('measure_location', 'https://www.google.com/maps/search/?api=1&query=' + lat + ',' + lng);
@@ -69,10 +69,10 @@ module.exports = class RenaultZoeDevice extends Homey.Device {
   async chargeModeActionRunListener(args, state) {
     this.log('-> chargeModeActionRunListener run');
     const settings = this.getSettings();
-    let renaultApi = new api.RenaultApi(settings, Homey.env.ENCRYPTION_KEY);
+    let renaultApi = new api.RenaultApi(settings);
     renaultApi.setChargeMode(args.mode)
       .then(result => {
-        console.log(result);
+        this.log(result);
         this.setCapabilityValue('charge_mode', args.mode)
       });
   }
@@ -80,10 +80,10 @@ module.exports = class RenaultZoeDevice extends Homey.Device {
   async onCapabilityPicker(opts) {
     this.log('-> onCapabilityPicker is changeed');
     const settings = this.getSettings();
-    let renaultApi = new api.RenaultApi(settings, Homey.env.ENCRYPTION_KEY);
+    let renaultApi = new api.RenaultApi(settings);
     renaultApi.setChargeMode(opts)
       .then(result => {
-        console.log(result);
+        this.log(result);
         this.setCapabilityValue('charge_mode', opts)
       });
   }
@@ -95,21 +95,21 @@ module.exports = class RenaultZoeDevice extends Homey.Device {
       let batterylevel = this.getCapabilityValue('measure_battery');
       if (batterylevel > 24) { // Zoe internal app can not run heater below 40 - we will be a bit nicer
         const settings = this.getSettings();
-        let renaultApi = new api.RenaultApi(settings, Homey.env.ENCRYPTION_KEY);
+        let renaultApi = new api.RenaultApi(settings);
         renaultApi.startAC(21)
           .then(result => {
-            console.log(result);
+            this.log(result);
             this.setHvacStatus('on');
             this.data = this.homey.setTimeout(() => { this.setHvacStatus('off'); }, 600000);
           })
           .catch((error) => {
-            console.log(error);
+            this.log(error);
             this.setHvacStatus('off');
             throw new Error('An error occured when trying to start heater.', error);
           });
       }
       else {
-        console.log('Battery level to low o start.');
+        this.log('Battery level to low o start.');
         this.setHvacStatus('off');
         throw new Error('Your car need some more charging before using heater, not started 25% is needed).');
       }
@@ -123,7 +123,7 @@ module.exports = class RenaultZoeDevice extends Homey.Device {
 
   setHvacStatus(status) {
     this.log('-> setHvacStatus');
-    console.log({ 'oldValue': this.hvacState, 'newValue': status })
+    this.log({ 'oldValue': this.hvacState, 'newValue': status })
     this.hvacState = status;
     if (status === 'on') {
       this.setCapabilityValue('onoff', true)
@@ -136,10 +136,11 @@ module.exports = class RenaultZoeDevice extends Homey.Device {
   async fetchData() {
     this.log('-> enter fetchCarData');
     const settings = this.getSettings();
-    let renaultApi = new api.RenaultApi(settings, Homey.env.ENCRYPTION_KEY);
+    this.log(settings);
+    let renaultApi = new api.RenaultApi(settings);
     renaultApi.getBatteryStatus()
       .then(result => {
-        console.log(result);
+        this.log(result);
         this.setCapabilityValue('measure_battery', result.data.batteryLevel ?? 0);
         this.setCapabilityValue('measure_batteryTemperature', result.data.batteryTemperature ?? 20);
         this.setCapabilityValue('measure_batteryAvailableEnergy', result.data.batteryAvailableEnergy ?? 0);
@@ -163,46 +164,50 @@ module.exports = class RenaultZoeDevice extends Homey.Device {
         this.setCapabilityValue('measure_chargingStatus', chargingStatus);
         this.setCapabilityValue('measure_chargingRemainingTime', chargingRemainingTime);
         this.setCapabilityValue('measure_chargingInstantaneousPower', chargingInstantaneousPower);
+
+        renaultApi.getChargeMode()
+          .then(result => {
+            this.log(result);
+            if (result.data.chargeMode === 'scheduled') {
+              this.setCapabilityValue('charge_mode', 'schedule_mode')
+            }
+            else {
+              this.setCapabilityValue('charge_mode', 'always_charging')
+            }
+
+            renaultApi.getCockpit()
+              .then(result => {
+                this.log(result);
+                this.setCapabilityValue('measure_totalMileage', result.data.totalMileage ?? 0);
+
+                renaultApi.getACStatus()
+                  .then(result => {
+                    this.log(result);
+                    this.setHvacStatus(result.data.hvacStatus);
+
+                    renaultApi.getLocation()
+                      .then(result => {
+                        this.log(result);
+                        this.setLocation(result);
+                      })
+                      .catch((error) => {
+                        this.log(error);
+                      });
+                  })
+                  .catch((error) => {
+                    this.log(error);
+                  });
+              })
+              .catch((error) => {
+                this.log(error);
+              });
+          })
+          .catch((error) => {
+            this.log(error);
+          });
       })
       .catch((error) => {
-        console.log(error);
-      });
-    renaultApi.getCockpit()
-      .then(result => {
-        console.log(result);
-        this.setCapabilityValue('measure_totalMileage', result.data.totalMileage ?? 0);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    renaultApi.getACStatus()
-      .then(result => {
-        console.log(result);
-        this.setHvacStatus(result.data.hvacStatus);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    renaultApi.getLocation()
-      .then(result => {
-        console.log(result);
-        this.setLocation(result);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    renaultApi.getChargeMode()
-      .then(result => {
-        console.log(result);
-        if (result.data.chargeMode === 'scheduled') {
-          this.setCapabilityValue('charge_mode', 'schedule_mode')
-        }
-        else {
-          this.setCapabilityValue('charge_mode', 'always_charging')
-        }
-      })
-      .catch((error) => {
-        console.log(error);
+        this.log(error);
       });
   }
 
