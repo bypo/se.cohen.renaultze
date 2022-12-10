@@ -16,5 +16,8 @@
   },
   "2.0.5": {
     "en": "Added more loggig, updated pairing to prefent possible error"
+  },
+  "2.1.0": {
+    "en": "Update to reuse token for better performance and also lowered polling to every minute for better experience."
   }
 }
