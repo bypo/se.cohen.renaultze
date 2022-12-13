@@ -21,7 +21,7 @@ module.exports = class RenaultZoeDevice extends Homey.Device {
         this.error(err);
       });
 
-    this.pollingInterval = this.homey.setInterval(() => { this.fetchData(); }, 60000);
+    this.pollingInterval = this.homey.setInterval(() => { this.fetchData(); }, 420000);
   }
 
   SetCapabilities() {
