@@ -19,5 +19,8 @@
   },
   "2.1.0": {
     "en": "Update to reuse token for better performance and also lowered polling to every minute for better experience."
+  },
+  "2.1.1": {
+    "en": "Set polling inttervall back due to HTTP 429 error, too many requests"
   }
 }
