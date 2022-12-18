@@ -22,5 +22,8 @@
   },
   "2.1.1": {
     "en": "Set polling inttervall back due to HTTP 429 error, too many requests"
+  },
+  "2.1.2": {
+    "en": "Fix in conditions, mixed up is charging and is plugged in."
   }
 }
