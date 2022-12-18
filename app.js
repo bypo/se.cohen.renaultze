@@ -11,11 +11,11 @@ class RenaultZoeApp extends Homey.App {
       .registerRunListener((args, state) => { return args.device.chargeModeActionRunListener(args, state); });
 
     // Conditions
-    const isCharging = this.homey.flow.getConditionCard('is_charging');
-		isCharging.registerRunListener((args) => args.device.getCapabilityValue('measure_chargingStatus'));
-    
-    const isPluggedIn = this.homey.flow.getConditionCard('is_pluggedIn');
-		isCharging.registerRunListener((args) => args.device.getCapabilityValue('measure_plugStatus'));
+    const isCharging = this.homey.flow.getConditionCard('is_charging')
+      .registerRunListener((args) => args.device.getCapabilityValue('measure_chargingStatus'));
+
+    const isPluggedIn = this.homey.flow.getConditionCard('is_pluggedIn')
+      .registerRunListener((args) => args.device.getCapabilityValue('measure_plugStatus'));
 
   }
 }
