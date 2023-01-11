@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "se.cohen.renaultze",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#0d3b66",
@@ -75,6 +75,35 @@
       },
       {
         "title": {
+          "en": "Charging stopped",
+          "sv": "Laddning avslutad"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=renault-zoe"
+          }
+        ],
+        "id": "measure_chargingStatus_false"
+      },
+      {
+        "title": {
+          "en": "Charging started",
+          "sv": "Laddning startad"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=renault-zoe"
+          }
+        ],
+        "id": "measure_chargingStatus_true"
+      },
+      {
+        "deprecated": true,
+        "title": {
           "en": "Vehicle is at home changed",
           "sv": "Fordonets hemma status ändrades"
         },
@@ -89,6 +118,34 @@
       },
       {
         "title": {
+          "en": "Vehicle is not at home",
+          "sv": "Bilen är inte hemma"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=renault-zoe"
+          }
+        ],
+        "id": "measure_isHome_false"
+      },
+      {
+        "title": {
+          "en": "Vehicle is at home",
+          "sv": "Bilen är hemma"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=renault-zoe"
+          }
+        ],
+        "id": "measure_isHome_true"
+      },
+      {
+        "title": {
           "en": "Vehicle location changed",
           "sv": "Fordonets position ändrades"
         },
@@ -100,6 +157,34 @@
           }
         ],
         "id": "measure_location_changed"
+      },
+      {
+        "title": {
+          "en": "Vehicle is not plugged in",
+          "sv": "Bilen är inte inkopplad"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=renault-zoe"
+          }
+        ],
+        "id": "measure_plugStatus_false"
+      },
+      {
+        "title": {
+          "en": "Vehicle is plugged in",
+          "sv": "Bilen är inkopplad"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=renault-zoe"
+          }
+        ],
+        "id": "measure_plugStatus_true"
       }
     ],
     "conditions": [
