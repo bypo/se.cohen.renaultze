@@ -1,8 +1,7 @@
 {
-  "deprecated": true,
   "title": {
-    "en": "Vehicle is at home changed",
-    "sv": "Fordonets hemma status ändrades"
+    "en": "Vehicle is not at home",
+    "sv": "Bilen är inte hemma"
   },
   "args": [
     {

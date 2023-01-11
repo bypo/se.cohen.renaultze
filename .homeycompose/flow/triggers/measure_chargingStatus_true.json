@@ -1,8 +1,7 @@
 {
-  "deprecated": true,
   "title": {
-    "en": "Vehicle is at home changed",
-    "sv": "Fordonets hemma status ändrades"
+    "en": "Charging started",
+    "sv": "Laddning startad"
   },
   "args": [
     {
