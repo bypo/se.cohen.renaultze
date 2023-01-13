@@ -1,32 +1,42 @@
 {
   "2.0.0": {
-    "en": "Intial releaase"
+    "en": "Intial releaase",
+	"fr": "Publication initiale"
   },
   "2.0.1": {
-    "en": "Updated App Icon, readme and added link to comminty forum"
+    "en": "Updated App Icon, readme and added link to comminty forum",
+	"fr": "Mise à jour de l'icône de l'application, du fichier readme et ajout d'un lien vers le forum communautaire."
   },
   "2.0.2": {
-    "en": "Added trigger flow and action to handle charge mode"
+    "en": "Added trigger flow and action to handle charge mode",
+	"fr": "Ajout d'un flux de déclenchement et d'une action pour gérer le mode de charge"
   },
   "2.0.3": {
-    "en": "Added location API and capability/triggers for is home and location (lat lng) and also added conditions for is charging and is plugged in. Fixed some problems with undefined variables. "
+    "en": "Added location API and capability/triggers for is home and location (lat lng) and also added conditions for is charging and is plugged in. Fixed some problems with undefined variables. ",
+	"fr": "Ajout d'une API de localisation et de capacités/déclenchements pour is home et l'emplacement (lat lng) et ajout de conditions pour is charging et is plugged in. Correction de certains problèmes avec des variables indéfinies."
   },
   "2.0.4": {
-    "en": "Updated location to hold google maps url and added separat long/lat capabilities"
+    "en": "Updated location to hold google maps url and added separat long/lat capabilities",
+	"fr": "Mise à jour de l'emplacement pour qu'il contienne l'url de Google Maps et ajout de capacités séparées de longitude et de longitude."
   },
   "2.0.5": {
-    "en": "Added more loggig, updated pairing to prefent possible error"
+    "en": "Added more loggig, updated pairing to prefent possible error",
+	"fr": "Ajout de plus de loggig, mise à jour de l'appariement pour prévenir les erreurs possibles."
   },
   "2.1.0": {
-    "en": "Update to reuse token for better performance and also lowered polling to every minute for better experience."
+    "en": "Update to reuse token for better performance and also lowered polling to every minute for better experience.",
+	"fr": "Mise à jour de la réutilisation des jetons pour de meilleures performances et réduction de l'interrogation à toutes les minutes pour une meilleure expérience."
   },
   "2.1.1": {
-    "en": "Set polling inttervall back due to HTTP 429 error, too many requests"
+    "en": "Set polling inttervall back due to HTTP 429 error, too many requests",
+	"fr": "Remise en place de l'intervall de sondage en raison d'une erreur HTTP 429, trop de demandes"
   },
   "2.1.2": {
-    "en": "Fix in conditions, mixed up is charging and is plugged in."
+    "en": "Fix in conditions, mixed up is charging and is plugged in.",
+	"fr": "Fixe dans les conditions, le mixte est en charge et est branché."
   },
   "2.1.3": {
-    "en": "Added trigger cards for plugin status and charge status, also updated the is home trigger card to follow boolean standard."
+    "en": "Added trigger cards for plugin status and charge status, also updated the is home trigger card to follow boolean standard.",
+	"fr": "Ajout de cartes de déclenchement pour l'état du plugin et l'état de la charge, également mise à jour de la carte de déclenchement is home pour suivre la norme booléenne."
   }
 }
