@@ -1,7 +1,8 @@
 {
   "title": {
     "en": "!{{Plugged in|Not plugged in}} ",
-    "sv": "!{{Inkopplad|Ej inlopplad}} "
+    "sv": "!{{Inkopplad|Ej inlopplad}} ",
+    "fr": "!{{Brachée|Non branchée}} ",
   },
   "args": [
     {
