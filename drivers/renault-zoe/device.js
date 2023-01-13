@@ -141,30 +141,41 @@ module.exports = class RenaultZoeDevice extends Homey.Device {
     renaultApi.getBatteryStatus()
       .then(result => {
         this.log(result);
-        this.setCapabilityValue('measure_battery', result.data.batteryLevel ?? 0);
-        this.setCapabilityValue('measure_batteryTemperature', result.data.batteryTemperature ?? 20);
-        this.setCapabilityValue('measure_batteryAvailableEnergy', result.data.batteryAvailableEnergy ?? 0);
-        this.setCapabilityValue('measure_batteryAutonomy', result.data.batteryAutonomy ?? 0);
-        let plugStatus = false;
-        if (result.data.plugStatus === 1) {
-          plugStatus = true;
+        if (result.status == 'notSupported') {
+          this.setCapabilityValue('measure_battery', 0);
+          this.setCapabilityValue('measure_batteryTemperature', 0);
+          this.setCapabilityValue('measure_batteryAvailableEnergy', 0);
+          this.setCapabilityValue('measure_batteryAutonomy',  0);
+          this.setCapabilityValue('measure_plugStatus', false);
+          this.setCapabilityValue('measure_chargingStatus', false);
+          this.setCapabilityValue('measure_chargingRemainingTime', 0);
+          this.setCapabilityValue('measure_chargingInstantaneousPower', 0);
         }
-        this.setCapabilityValue('measure_plugStatus', plugStatus);
-        let chargingRemainingTime = 0;
-        let chargingInstantaneousPower = 0;
-        let chargingStatus = false;
-        if (result.data.chargingStatus === 1) {
-          chargingStatus = true;
-          chargingRemainingTime = result.data.chargingRemainingTime ?? 0;
-          chargingInstantaneousPower = result.data.chargingInstantaneousPower ?? 0;
-          if (renaultApi.reportsChargingPowerInWatts()) {
-            chargingInstantaneousPower = chargingInstantaneousPower / 1000;
+        else{
+          this.setCapabilityValue('measure_battery', result.data.batteryLevel ?? 0);
+          this.setCapabilityValue('measure_batteryTemperature', result.data.batteryTemperature ?? 20);
+          this.setCapabilityValue('measure_batteryAvailableEnergy', result.data.batteryAvailableEnergy ?? 0);
+          this.setCapabilityValue('measure_batteryAutonomy', result.data.batteryAutonomy ?? 0);
+          let plugStatus = false;
+          if (result.data.plugStatus === 1) {
+            plugStatus = true;
           }
+          this.setCapabilityValue('measure_plugStatus', plugStatus);
+          let chargingRemainingTime = 0;
+          let chargingInstantaneousPower = 0;
+          let chargingStatus = false;
+          if (result.data.chargingStatus === 1) {
+            chargingStatus = true;
+            chargingRemainingTime = result.data.chargingRemainingTime ?? 0;
+            chargingInstantaneousPower = result.data.chargingInstantaneousPower ?? 0;
+            if (renaultApi.reportsChargingPowerInWatts()) {
+              chargingInstantaneousPower = chargingInstantaneousPower / 1000;
+            }
+          }
+          this.setCapabilityValue('measure_chargingStatus', chargingStatus);
+          this.setCapabilityValue('measure_chargingRemainingTime', chargingRemainingTime);
+          this.setCapabilityValue('measure_chargingInstantaneousPower', chargingInstantaneousPower);
         }
-        this.setCapabilityValue('measure_chargingStatus', chargingStatus);
-        this.setCapabilityValue('measure_chargingRemainingTime', chargingRemainingTime);
-        this.setCapabilityValue('measure_chargingInstantaneousPower', chargingInstantaneousPower);
-
         renaultApi.getChargeMode()
           .then(result => {
             this.log(result);
