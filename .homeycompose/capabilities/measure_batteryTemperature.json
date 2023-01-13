@@ -3,7 +3,8 @@
   "decimals": 0,
   "title": {
     "en": "Battery temparature",
-    "sv": "Batteritemperatur"
+    "sv": "Batteritemperatur",
+    "fr": "Température de la batterie"
   },
   "units": "°C",
   "getable": true,
