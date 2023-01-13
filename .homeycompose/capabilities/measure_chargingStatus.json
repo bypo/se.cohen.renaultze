@@ -2,7 +2,8 @@
     "type": "boolean",
     "title": {
       "en": "Charging",
-      "sv": "Laddar"
+      "sv": "Laddar",
+      "fr": "En charge"  
     },
     "getable": true,
     "setable": false,
