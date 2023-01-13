@@ -5,20 +5,23 @@
       "id": "always_charging",
       "title": {
         "en": "Always",
-        "sv": "Alltid på"
+        "sv": "Alltid på",
+        "fr": "Instantanée"
       }
     },
     {
       "id": "schedule_mode",
       "title": {
         "en": "Scheduled",
-        "sv": "Schemalagd"
+        "sv": "Schemalagd",
+        "fr": "Personnalisée"
       }
     }
   ],
   "title": {
     "en": "Charge mode",
-    "sv": "Laddläge"
+    "sv": "Laddläge",
+    "fr": "Mode de charge"
   },
   "uiComponent": "picker",
   "getable": true,
