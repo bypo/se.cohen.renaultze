@@ -3,7 +3,8 @@
     "decimals": 2,
     "title": {
       "en": "Charging rate",
-      "sv": "Laddhastighet"
+      "sv": "Laddhastighet",
+      "fr": "Pourcentage de charge"  
     },
     "units": "kW",
     "getable": true,
