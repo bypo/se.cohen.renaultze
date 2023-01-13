@@ -2,7 +2,8 @@
   "deprecated": true,
   "title": {
     "en": "Vehicle is at home changed",
-    "sv": "Fordonets hemma status ändrades"
+    "sv": "Fordonets hemma status ändrades",
+    "fr": "Le paramètre 'à la maison' a changé"
   },
   "args": [
     {
