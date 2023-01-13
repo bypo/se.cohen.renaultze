@@ -2,7 +2,8 @@
   "type": "boolean",
   "title": {
     "en": "Plugged in",
-    "sv": "Inkopplad"
+    "sv": "Inkopplad",
+    "fr": "Branché"
   },
   "getable": true,
   "setable": false,
