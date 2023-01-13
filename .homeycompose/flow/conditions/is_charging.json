@@ -1,7 +1,8 @@
 {
   "title": {
     "en": "Charging !{{active|inactive}} ",
-    "sv": "Laddning !{{aktiv|inaktiv}} "
+    "sv": "Laddning !{{aktiv|inaktiv}} ",
+    "fr": "Charge !{{active|inactive}} "
   },
   "args": [
     {
