@@ -1,7 +1,8 @@
 {
   "title": {
     "en": "Charging stopped",
-    "sv": "Laddning avslutad"
+    "sv": "Laddning avslutad",
+     "fr": "La charge s'est arrêtée"
   },
   "args": [
     {
