@@ -1,7 +1,8 @@
 {
   "title": {
     "en": "Charge mode changed",
-    "sv": "Laddläge ändrades"
+    "sv": "Laddläge ändrades",
+    "fr": "Changement de mode de charge"
   },
   "args": [
     {
