@@ -3,7 +3,8 @@
     "decimals": 2,
     "title": {
       "en": "Total milage",
-      "sv": "Total körsträcka"
+      "sv": "Total körsträcka",
+      "fr": "Kilométrage total"
     },
     "units": "km",
     "getable": true,
