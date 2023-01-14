@@ -1,7 +1,8 @@
 {
   "title": {
     "en": "Charging started",
-    "sv": "Laddning startad"
+    "sv": "Laddning startad",
+    "fr": "La charge a commencé"
   },
   "args": [
     {

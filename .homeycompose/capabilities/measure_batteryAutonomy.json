@@ -3,7 +3,8 @@
     "decimals": 0,
     "title": {
       "en": "Range",
-      "sv": "Räckvidd"
+      "sv": "Räckvidd",
+      "fr":  "Gamme"
     },
     "units": "km",
     "getable": true,

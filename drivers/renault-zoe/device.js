@@ -145,13 +145,13 @@ module.exports = class RenaultZoeDevice extends Homey.Device {
           this.setCapabilityValue('measure_battery', 0);
           this.setCapabilityValue('measure_batteryTemperature', 0);
           this.setCapabilityValue('measure_batteryAvailableEnergy', 0);
-          this.setCapabilityValue('measure_batteryAutonomy',  0);
+          this.setCapabilityValue('measure_batteryAutonomy', 0);
           this.setCapabilityValue('measure_plugStatus', false);
           this.setCapabilityValue('measure_chargingStatus', false);
           this.setCapabilityValue('measure_chargingRemainingTime', 0);
           this.setCapabilityValue('measure_chargingInstantaneousPower', 0);
         }
-        else{
+        else {
           this.setCapabilityValue('measure_battery', result.data.batteryLevel ?? 0);
           this.setCapabilityValue('measure_batteryTemperature', result.data.batteryTemperature ?? 20);
           this.setCapabilityValue('measure_batteryAvailableEnergy', result.data.batteryAvailableEnergy ?? 0);
@@ -179,27 +179,32 @@ module.exports = class RenaultZoeDevice extends Homey.Device {
         renaultApi.getChargeMode()
           .then(result => {
             this.log(result);
-            if (result.data.chargeMode === 'scheduled') {
-              this.setCapabilityValue('charge_mode', 'schedule_mode')
+            if (result.status == 'ok') {
+              if (result.data.chargeMode === 'scheduled') {
+                this.setCapabilityValue('charge_mode', 'schedule_mode')
+              }
+              else {
+                this.setCapabilityValue('charge_mode', 'always_charging')
+              }
             }
-            else {
-              this.setCapabilityValue('charge_mode', 'always_charging')
-            }
-
             renaultApi.getCockpit()
               .then(result => {
                 this.log(result);
-                this.setCapabilityValue('measure_totalMileage', result.data.totalMileage ?? 0);
-
+                if (result.status == 'ok') {
+                  this.setCapabilityValue('measure_totalMileage', result.data.totalMileage ?? 0);
+                }
                 renaultApi.getACStatus()
                   .then(result => {
                     this.log(result);
-                    this.setHvacStatus(result.data.hvacStatus);
-
+                    if (result.status == 'ok') {
+                      this.setHvacStatus(result.data.hvacStatus);
+                    }
                     renaultApi.getLocation()
                       .then(result => {
                         this.log(result);
-                        this.setLocation(result);
+                        if (result.status == 'ok') {
+                          this.setLocation(result);
+                        }
                       })
                       .catch((error) => {
                         this.log(error);

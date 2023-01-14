@@ -3,7 +3,8 @@
     "decimals": 0,
     "title": {
       "en": "Available energy",
-      "sv": "Tillgänglig energi"
+      "sv": "Tillgänglig energi",
+      "fr": "Énergie disponible"
     },
     "units": "kW",
     "getable": true,
