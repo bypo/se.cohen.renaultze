@@ -47,5 +47,8 @@
   },
   "2.1.6": {
     "en": "Added more checks on model to decide on autonomy attribute"
+  },
+  "2.2.0": {
+    "en": "New version with Frensh language support and basic Clio support"
   }
 }
