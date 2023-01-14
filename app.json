@@ -377,7 +377,7 @@
       "title": {
         "en": "Range",
         "sv": "Räckvidd",
-        "fr": "Gamme"
+        "fr": "Autonomie"
       },
       "units": "km",
       "getable": true,
