@@ -1,7 +1,8 @@
 {
   "title": {
     "en": "Vehicle is at home",
-    "sv": "Bilen är hemma"
+    "sv": "Bilen är hemma",
+    "fr": "Véhicule est à la maison"
   },
   "args": [
     {
