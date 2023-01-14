@@ -44,5 +44,8 @@
   },
   "2.1.5": {
     "en": "Added French translations"
+  },
+  "2.1.6": {
+    "en": "Added more checks on model to decide on autonomy attribute"
   }
 }
