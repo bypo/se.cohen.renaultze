@@ -2,7 +2,8 @@
     "type": "string",
     "title": {
       "en": "Latitude",
-      "sv": "Latitud"
+      "sv": "Latitud",
+      "fr": "Latitude"
     },
     "getable": true,
     "setable": false,
