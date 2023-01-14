@@ -192,6 +192,9 @@ module.exports = class RenaultZoeDevice extends Homey.Device {
                 this.log(result);
                 if (result.status == 'ok') {
                   this.setCapabilityValue('measure_totalMileage', result.data.totalMileage ?? 0);
+                  if (renaultApi.supportFuelStatus() == true) {
+                    this.setCapabilityValue('measure_batteryAutonomy', result.data.fuelAutonomy ?? 0);
+                  }
                 }
                 renaultApi.getACStatus()
                   .then(result => {
