@@ -3,11 +3,13 @@
     "decimals": 0,
     "title": {
       "en": "Charge remaining time",
-      "sv": "Återstående laddtid"
+      "sv": "Återstående laddtid",
+      "fr": "Temps de charge restant"
     },
     "units": {
       "en": "minutes",
       "sv": "minuter"
+      "fr": "minutes"
     },
     "getable": true,
     "setable": false,
