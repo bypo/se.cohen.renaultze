@@ -2,7 +2,8 @@
     "type": "string",
     "title": {
       "en": "Location",
-      "sv": "Position"
+      "sv": "Position",
+      "fr": "Localisation"
     },
     "getable": true,
     "setable": false,
