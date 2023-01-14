@@ -12,8 +12,7 @@
     "en": "Renault Z.E."
   },
   "description": {
-    "en": "Connect to your electric Renault",
-	"fr": "Connectez-vous à votre Renault électrique"
+    "en": "Connect to your electric Renault"
   },
   "tags": {
     "en": [
@@ -63,8 +62,7 @@
       {
         "title": {
           "en": "Charge mode changed",
-          "sv": "Laddläge ändrades",
-		  "fr": "Changement de mode de charge"
+          "sv": "Laddläge ändrades"
         },
         "args": [
           {
@@ -78,8 +76,7 @@
       {
         "title": {
           "en": "Charging stopped",
-          "sv": "Laddning avslutad",
-		  "fr": "La charge s'est arrêtée"
+          "sv": "Laddning avslutad"
         },
         "args": [
           {
@@ -93,8 +90,7 @@
       {
         "title": {
           "en": "Charging started",
-          "sv": "Laddning startad",
-		  "fr": "La charge a débuté"
+          "sv": "Laddning startad"
         },
         "args": [
           {
@@ -109,8 +105,7 @@
         "deprecated": true,
         "title": {
           "en": "Vehicle is at home changed",
-          "sv": "Fordonets hemma status ändrades",
-		  "fr": "Le paramètre 'à la maison' a changé"
+          "sv": "Fordonets hemma status ändrades"
         },
         "args": [
           {
@@ -138,8 +133,7 @@
       {
         "title": {
           "en": "Vehicle is at home",
-          "sv": "Bilen är hemma",
-		  "fr": "Véhicule à la maison"
+          "sv": "Bilen är hemma"
         },
         "args": [
           {
@@ -153,8 +147,7 @@
       {
         "title": {
           "en": "Vehicle location changed",
-          "sv": "Fordonets position ändrades",
-		  "fr": "L'emplacement du véhicule a changé"
+          "sv": "Fordonets position ändrades"
         },
         "args": [
           {
@@ -168,8 +161,7 @@
       {
         "title": {
           "en": "Vehicle is not plugged in",
-          "sv": "Bilen är inte inkopplad",
-		  "fr": "Le véhicule n'est pas branché"
+          "sv": "Bilen är inte inkopplad"
         },
         "args": [
           {
@@ -183,8 +175,7 @@
       {
         "title": {
           "en": "Vehicle is plugged in",
-          "sv": "Bilen är inkopplad",
-		  "fr": "Le véhicule est branché"
+          "sv": "Bilen är inkopplad"
         },
         "args": [
           {
@@ -200,8 +191,7 @@
       {
         "title": {
           "en": "Charging !{{active|inactive}} ",
-          "sv": "Laddning !{{aktiv|inaktiv}} ",
-		  "fr": "Chargement !{{actif|inactif}}"
+          "sv": "Laddning !{{aktiv|inaktiv}} "
         },
         "args": [
           {
@@ -215,8 +205,7 @@
       {
         "title": {
           "en": "!{{Plugged in|Not plugged in}} ",
-          "sv": "!{{Inkopplad|Ej inlopplad}} ",
-		  "fr": "!{{Branché|Non branché}} "
+          "sv": "!{{Inkopplad|Ej inlopplad}} "
         },
         "args": [
           {
@@ -233,13 +222,11 @@
         "id": "set_charge_mode",
         "title": {
           "en": "Set charge mode",
-          "sv": "Ställ laddläge",
-		  "fr": "Définir le mode de charge"
+          "sv": "Ställ laddläge"
         },
         "titleFormatted": {
           "en": "Set charge mode to [[mode]]",
-          "sv": "Ställ laddläge till [[mode]]",
-		  "fr": "Définir le mode de charge [[mode]]"
+          "sv": "Ställ laddläge till [[mode]]"
         },
         "args": [
           {
@@ -255,16 +242,14 @@
                 "id": "always_charging",
                 "title": {
                   "en": "Always",
-                  "sv": "Alltid på",
-				  "fr": "Instantanée"
+                  "sv": "Alltid på"
                 }
               },
               {
                 "id": "schedule_mode",
                 "title": {
                   "en": "Scheduled",
-                  "sv": "Schemalagd",
-				  "fr": "Personnalisée"
+                  "sv": "Schemalagd"
                 }
               }
             ]
@@ -348,23 +333,20 @@
           "id": "always_charging",
           "title": {
             "en": "Always",
-            "sv": "Alltid på",
-			"fr": "Instantanée"
+            "sv": "Alltid på"
           }
         },
         {
           "id": "schedule_mode",
           "title": {
             "en": "Scheduled",
-            "sv": "Schemalagd",
-			"fr": "Personnalisée"
+            "sv": "Schemalagd"
           }
         }
       ],
       "title": {
         "en": "Charge mode",
-        "sv": "Laddläge",
-		"fr": "Mode de charge"
+        "sv": "Laddläge"
       },
       "uiComponent": "picker",
       "getable": true,
@@ -375,8 +357,7 @@
       "decimals": 0,
       "title": {
         "en": "Range",
-        "sv": "Räckvidd",
-		"fr": "Autonomie"
+        "sv": "Räckvidd"
       },
       "units": "km",
       "getable": true,
@@ -389,8 +370,7 @@
       "decimals": 0,
       "title": {
         "en": "Available energy",
-        "sv": "Tillgänglig energi",
-		"fr": "Énergie disponible"
+        "sv": "Tillgänglig energi"
       },
       "units": "kW",
       "getable": true,
@@ -403,8 +383,7 @@
       "decimals": 0,
       "title": {
         "en": "Battery temparature",
-        "sv": "Batteritemperatur",
-		"fr": "Température de la batterie"
+        "sv": "Batteritemperatur"
       },
       "units": "°C",
       "getable": true,
@@ -417,8 +396,7 @@
       "decimals": 2,
       "title": {
         "en": "Charging rate",
-        "sv": "Laddhastighet",
-		"fr": "Pourcentage de charge"
+        "sv": "Laddhastighet"
       },
       "units": "kW",
       "getable": true,
@@ -431,13 +409,11 @@
       "decimals": 0,
       "title": {
         "en": "Charge remaining time",
-        "sv": "Återstående laddtid",
-		"fr": "Temps de charge restant"
+        "sv": "Återstående laddtid"
       },
       "units": {
         "en": "minutes",
-        "sv": "minuter",
-		"fr": "minutes"
+        "sv": "minuter"
       },
       "getable": true,
       "setable": false,
@@ -448,8 +424,7 @@
       "type": "boolean",
       "title": {
         "en": "Charging",
-        "sv": "Laddar",
-		"fr": "Chargement"
+        "sv": "Laddar"
       },
       "getable": true,
       "setable": false,
@@ -460,8 +435,7 @@
       "type": "boolean",
       "title": {
         "en": "Is vehicle at home",
-        "sv": "Är fordonet hemma",
-		"fr": "Le véhicule est-il à la maison ?"
+        "sv": "Är fordonet hemma"
       },
       "getable": true,
       "setable": false,
@@ -472,8 +446,7 @@
       "type": "string",
       "title": {
         "en": "Location",
-        "sv": "Position",
-		"fr": "Localistation"
+        "sv": "Position"
       },
       "getable": true,
       "setable": false,
@@ -483,8 +456,7 @@
       "type": "string",
       "title": {
         "en": "Latitude",
-        "sv": "Latitud",
-		"fr": "Latitude"
+        "sv": "Latitud"
       },
       "getable": true,
       "setable": false,
@@ -494,8 +466,7 @@
       "type": "string",
       "title": {
         "en": "Longitude",
-        "sv": "Longitud",
-		"fr": "Longitude"
+        "sv": "Longitud"
       },
       "getable": true,
       "setable": false,
@@ -505,8 +476,7 @@
       "type": "boolean",
       "title": {
         "en": "Plugged in",
-        "sv": "Inkopplad",
-		"fr": "Branché"
+        "sv": "Inkopplad"
       },
       "getable": true,
       "setable": false,
@@ -518,8 +488,7 @@
       "decimals": 2,
       "title": {
         "en": "Total milage",
-        "sv": "Total körsträcka",
-		"fr": "Kilométrage total"
+        "sv": "Total körsträcka"
       },
       "units": "km",
       "getable": true,
