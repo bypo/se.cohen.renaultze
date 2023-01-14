@@ -25,7 +25,8 @@
     "onoff": {
       "title": {
         "en": "Turn on heater",
-        "sv": "Slå på värmaren"
+        "sv": "Slå på värmaren",
+        "fr": "Allumer le chauffage"
       }
     }
   },
