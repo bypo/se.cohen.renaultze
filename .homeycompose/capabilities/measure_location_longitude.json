@@ -2,7 +2,8 @@
     "type": "string",
     "title": {
       "en": "Longitude",
-      "sv": "Longitud"
+      "sv": "Longitud",
+      "fr": "Logitude"
     },
     "getable": true,
     "setable": false,
