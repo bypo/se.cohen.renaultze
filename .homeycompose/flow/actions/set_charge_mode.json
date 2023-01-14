@@ -2,11 +2,13 @@
     "id": "set_charge_mode",
     "title": {
         "en": "Set charge mode",
-        "sv": "Ställ laddläge"
+        "sv": "Ställ laddläge",
+        "fr": "Régler le mode de charge"
     },
     "titleFormatted": {
         "en": "Set charge mode to [[mode]]",
-        "sv": "Ställ laddläge till [[mode]]"
+        "sv": "Ställ laddläge till [[mode]]",
+        "fr": "Régler le mode de charge en [[mode]]"
     },
     "args": [
         {
@@ -22,14 +24,16 @@
                     "id": "always_charging",
                     "title": {
                         "en": "Always",
-                        "sv": "Alltid på"
+                        "sv": "Alltid på",
+                        "fr": "Instantannée"
                     }
                 },
                 {
                     "id": "schedule_mode",
                     "title": {
                         "en": "Scheduled",
-                        "sv": "Schemalagd"
+                        "sv": "Schemalagd",
+                        "fr": "Personnalisée"
                     }
                 }
             ]
