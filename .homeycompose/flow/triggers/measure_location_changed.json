@@ -1,7 +1,8 @@
 {
   "title": {
     "en": "Vehicle location changed",
-    "sv": "Fordonets position ändrades"
+    "sv": "Fordonets position ändrades",
+    "fr": "L'emplacement du véhicule a changé"
   },
   "args": [
     {
