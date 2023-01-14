@@ -1,7 +1,8 @@
 {
   "title": {
     "en": "Vehicle is not plugged in",
-    "sv": "Bilen är inte inkopplad"
+    "sv": "Bilen är inte inkopplad",
+    "fr": "Le véhicule n'est pas branché"
   },
   "args": [
     {
