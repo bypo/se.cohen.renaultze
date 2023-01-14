@@ -2,7 +2,8 @@
   "type": "boolean",
   "title": {
     "en": "Is vehicle at home",
-    "sv": "Är fordonet hemma"
+    "sv": "Är fordonet hemma",
+    "fr": "Le véhicule est à la maison"
   },
   "getable": true,
   "setable": false,
