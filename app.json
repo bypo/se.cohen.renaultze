@@ -419,7 +419,7 @@
       "title": {
         "en": "Charging rate",
         "sv": "Laddhastighet",
-        "fr": "Pourcentage de charge"
+        "fr": "Puissance de charge"
       },
       "units": "kW",
       "getable": true,
