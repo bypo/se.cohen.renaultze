@@ -1,7 +1,7 @@
 'use strict';
 
 const Homey = require('homey');
-const api = require('/lib/api');
+const api = require('../../lib/api');
 
 module.exports = class RenaultZoeDevice extends Homey.Device {
 
