@@ -50,5 +50,11 @@
   },
   "2.2.0": {
     "en": "New version with Frensh language support and basic Clio support"
+  },
+  "2.2.1": {
+    "en": "Fix for Homey Pro 2023"
+  },
+  "2.2.2": {
+    "en": "Updated  Renault API key"
   }
 }
