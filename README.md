@@ -1,5 +1,7 @@
 # RenaultZE - Handle your Renault Zoe in Homey
 
+**From now on I will no longer support or work on this, I do not own a Reanult Zoe any longer. If anyone want to take ownership, please contact me.**
+
 Add support to check status on your Renault Zoe or Megane E-tech and handle pre-heating.
 Should work on these, but only tested with "ZOE phase 2".
 * ZOE phase 1 (X101VE)
